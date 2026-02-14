@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>404: Love Not Found?</title>
+    <title>A Special Message For You ❤️</title>
     <style>
         body {
             display: flex;
@@ -12,109 +12,134 @@
             justify-content: center;
             height: 100vh;
             margin: 0;
-            background-color: #ffe4e1;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #ffafbd; /* Soft pink gradient base */
+            background-image: linear-gradient(45deg, #ffafbd 0%, #ffc3a0 100%);
+            font-family: 'Poppins', sans-serif;
             overflow: hidden;
             text-align: center;
         }
 
         #container {
-            background: white;
-            padding: 2rem;
-            border-radius: 20px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-            transition: all 0.5s ease;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 3rem;
+            border-radius: 40px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+            max-width: 90%;
+            z-index: 10;
         }
 
-        h1 { color: #ff4d6d; margin-bottom: 10px; }
-        p { color: #555; font-size: 1.2rem; }
+        h1 { color: #d00045; font-size: 2.2rem; margin-bottom: 0; }
+        p { color: #ff4d6d; font-size: 1.1rem; font-weight: bold; }
 
         .gif-container img {
-            width: 200px;
-            border-radius: 10px;
-            margin: 20px 0;
+            width: 230px;
+            border-radius: 20px;
+            margin: 25px 0;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
 
         .btn-group {
-            position: relative;
-            height: 60px;
             margin-top: 20px;
+            height: 80px; /* Space for the button to move */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 25px;
         }
 
         button {
-            padding: 12px 25px;
-            font-size: 1.1rem;
+            padding: 15px 35px;
+            font-size: 1.3rem;
             font-weight: bold;
             border: none;
             border-radius: 50px;
             cursor: pointer;
-            transition: transform 0.2s;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
         }
 
         #yesBtn {
             background-color: #ff4d6d;
             color: white;
-            margin-right: 20px;
+            transition: transform 0.2s;
         }
+
+        #yesBtn:hover { transform: scale(1.1); }
 
         #noBtn {
-            background-color: #adb5bd;
-            color: white;
+            background-color: #ffffff;
+            color: #ff4d6d;
+            border: 2px solid #ff4d6d;
             position: absolute;
+            transition: all 0.2s ease-out;
+            z-index: 999;
         }
 
-        /* Success State */
         .hidden { display: none; }
-        .celebrate { font-size: 2rem; color: #ff4d6d; animation: heartBeat 1s infinite; }
         
-        @keyframes heartBeat {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.1); }
-            100% { transform: scale(1); }
+        .celebrate-text {
+            font-size: 2.5rem;
+            color: #d00045;
+            animation: bounce 0.8s infinite alternate;
+        }
+
+        @keyframes bounce {
+            from { transform: translateY(0); }
+            to { transform: translateY(-10px); }
         }
     </style>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
     <div id="container">
         <div id="main-content">
-            <h1 id="header">404: Love Not Found</h1>
-            <p id="subtext">Wait... I think I found it. ❤️</p>
+            <h1>Hey there! 🌸</h1>
+            <p>I have a very important question...</p>
             
             <div class="gif-container">
-                <img id="displayGif" src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHYyNHp3bmZ3bmZ3bmZ3bmZ3bmZ3bmZ3bmZ3bmZ3bmZ3bmZ3JmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZCZjdD1n/c76IJLufpN61i/giphy.gif" alt="Cute Cat">
+                <img id="displayGif" src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHYyNHp3bmZ3bmZ3bmZ3bmZ3bmZ3bmZ3bmZ3bmZ3bmZ3bmZ3JmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZCZjdD1n/KztT2c4u8mYYUiCiEE/giphy.gif" alt="Cute Mochi Cat">
             </div>
 
-            <h2 id="question">Will you be my Valentine?</h2>
+            <h2>Will you be my Valentine?</h2>
 
             <div class="btn-group">
                 <button id="yesBtn" onclick="celebrate()">YES!</button>
-                <button id="noBtn" onmouseover="moveButton()">No</button>
+                <button id="noBtn" onmouseover="moveButton()" onclick="moveButton()">No</button>
             </div>
         </div>
 
         <div id="success" class="hidden">
-            <h1 class="celebrate">YAY! ❤️</h1>
-            <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHYyNHp3bmZ3bmZ3bmZ3bmZ3bmZ3bmZ3bmZ3bmZ3bmZ3bmZ3JmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZCZjdD1n/T86p6yKMDsJ32/giphy.gif" alt="Happy Dance">
-            <p>I knew you'd say yes!</p>
+            <h1 class="celebrate-text">YAY! ❤️ See you then!</h1>
+            <div class="gif-container">
+                <img src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHYyNHp3bmZ3bmZ3bmZ3bmZ3bmZ3bmZ3bmZ3bmZ3bmZ3bmZ3JmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZCZjdD1n/iCVz2SSGuMDU6fVRm8/giphy.gif" alt="Happy Cats">
+            </div>
+            <p>I'm the luckiest! ⸜(｡˃ ᵕ ˂ )⸝♡</p>
         </div>
     </div>
 
     <script>
         function moveButton() {
             const btn = document.getElementById('noBtn');
-            // Calculate random positions within the viewport
-            const x = Math.random() * (window.innerWidth - btn.offsetWidth);
-            const y = Math.random() * (window.innerHeight - btn.offsetHeight);
             
-            btn.style.left = x + 'px';
-            btn.style.top = y + 'px';
+            // Randomly move the "No" button anywhere in the window
+            const maxX = window.innerWidth - btn.offsetWidth;
+            const maxY = window.innerHeight - btn.offsetHeight;
+
+            const randomX = Math.floor(Math.random() * maxX);
+            const randomY = Math.floor(Math.random() * maxY);
+
+            btn.style.left = randomX + 'px';
+            btn.style.top = randomY + 'px';
         }
 
         function celebrate() {
             document.getElementById('main-content').classList.add('hidden');
             document.getElementById('success').classList.remove('hidden');
-            document.body.style.backgroundColor = "#ffccd5";
+            document.body.style.backgroundImage = "linear-gradient(45deg, #ff9a9e 0%, #fad0c4 99%, #fad0c4 100%)";
+            
+            // Remove the pesky "No" button entirely once they say Yes
+            const noBtn = document.getElementById('noBtn');
+            if(noBtn) noBtn.remove();
         }
     </script>
 </body>
